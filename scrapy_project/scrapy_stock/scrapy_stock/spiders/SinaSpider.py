@@ -17,5 +17,8 @@ class SinaSpider(scrapy.Spider):
         data = {}
         for attr in tmp_str.split(','):
             attr_ = attr.split(':')
-            data[attr_[0]] = attr_[1][1:-1]
+            if (attr_[0] == 'ticktime'):
+                data[attr_[0]] = attr_[1][1:] + ':' + attr_[2] + ':' + attr_[3][:-1]
+            else:
+                data[attr_[0]] = attr_[1][1:-1]
         return data
