@@ -43,9 +43,8 @@ class StockCrawling(threading.Thread):
                 print('Thead-' + str(self.TheadID), ' crawling finish:', count, ' cost seconds:',
                       time.clock() - start_time)
             else:
-                print('market close.')
-                time.sleep(10)
-
+                print('Thead-' + str(self.TheadID), 'Market closed.')
+                break
 
     def __is_open_market(self):
         lt = time.localtime()
