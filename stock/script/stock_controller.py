@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 # -*- coding:utf-8 -*-
 
-import stock.stock_crawling as stock_crawling
+import stock.script.stock_crawling as stock_crawling
 
 import stock.script.stock_info as stock_info
 
