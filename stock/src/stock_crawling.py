@@ -55,4 +55,4 @@ class StockCrawling(threading.Thread):
         elif int(t) >= 1300 and int(t) <= 1500:
             return True
         else:
-            return True
+            return False

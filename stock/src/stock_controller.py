@@ -1,9 +1,8 @@
 #!/usr/bin/python3
 # -*- coding:utf-8 -*-
 
-import stock.script.stock_crawling as stock_crawling
-
-import stock.script.stock_info as stock_info
+from stock.src import stock_crawling, stock_info
+import sys
 
 THEAD_COUNT = 20
 THEAD_POOL = []
@@ -44,6 +43,7 @@ if __name__ == '__main__':
     o.read_stock_info()
     dict = stock_info.StockInfo.stock_info_dic
     start_crawling()
+    print(sys.path)
     # while True:
     #     time.sleep(10)
     #     for t in THEAD_POOL:

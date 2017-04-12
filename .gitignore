@@ -1,8 +1,9 @@
 /.idea/
-/stock/data/stock_data/
-/stock/data/stock_history/
 /temp/
 /dp-script/
 /odps/
 /scrapy_project/temp/
 /wa/
+/stock/data/stock_data/
+/stock/data/stock_history/
+/stock/logs/
