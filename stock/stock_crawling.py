@@ -1,3 +1,5 @@
+#!/usr/bin/python3
+
 import urllib.request as request
 import threading
 import time
@@ -48,9 +50,10 @@ class StockCrawling(threading.Thread):
 
     def __is_open_market(self):
         lt = time.localtime()
-        if lt[3] >= 9 and lt[4] >= 30 and lt[3] <= 11 and lt[4] <= 30:
+        t = '%02d%02d' % (lt[3], lt[4])
+        if int(t) >= 930 and int(t) <= 1130:
             return True
-        elif lt[3] >= 13 and lt[3] <= 15:
+        elif int(t) >= 1300 and int(t) <= 1500:
             return True
         else:
             return False

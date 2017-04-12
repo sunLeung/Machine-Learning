@@ -1,3 +1,5 @@
+#!/usr/bin/python3
+
 import stock.stock_info as stock_info
 import stock.stock_crawling as stock_crawling
 import time

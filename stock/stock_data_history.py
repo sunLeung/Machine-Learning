@@ -1,3 +1,5 @@
+#!/usr/bin/python3
+
 import urllib.request as req
 
 req_url = 'http://table.finance.yahoo.com/table.csv?s=%s.sz'
