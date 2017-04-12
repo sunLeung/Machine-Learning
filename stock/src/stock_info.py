@@ -58,7 +58,7 @@ class StockInfo:
     def __read_sh_stock_info(self, file):
         path = self.__save_path % (file)
         dict = {}
-        with open(path) as f:
+        with open(path, encoding='GBK') as f:
             count = 0
             for line in f:
                 if count == 0:
