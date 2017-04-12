@@ -7,7 +7,7 @@ import xlrd
 
 
 class StockInfo:
-    __sh_url = 'http://query.sse.com.cn/security/stock_data/downloadStockListFile.do?csrcCode=&stockCode=&areaName=&stockType=%s'
+    __sh_url = 'http://query.sse.com.cn/security/stock/downloadStockListFile.do?csrcCode=&stockCode=&areaName=&stockType=%s'
     __sh_heads = {'Referer': 'http://www.sse.com.cn/assortment/stock_data/list/share/'}
     __sz_url = 'http://www.szse.cn/szseWeb/ShowReport.szse?SHOWTYPE=xlsx&CATALOGID=1110&tab%sPAGENO=1&ENCODE=1&TABKEY=tab%s'
     __save_path = '../data/stock_info/%s'
@@ -17,13 +17,13 @@ class StockInfo:
     stock_info_dic = {}
 
     def __sh_a_info(self):
-        url = self.__sh_url % (1)
+        url = self.__sh_url % ('1')
         path = self.__save_path % (self.__files[0])
         self.__download(url, path, self.__sh_heads)
         print(self.__today, ' sh_a.xls download success')
 
     def __sh_b_info(self):
-        url = self.__sh_url % (2)
+        url = self.__sh_url % ('2')
         path = self.__save_path % (self.__files[1])
         self.__download(url, path, self.__sh_heads)
         print(self.__today, ' sh_b.xls download success')
