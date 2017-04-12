@@ -1,8 +1,12 @@
 #!/usr/bin/python3
 # -*- coding:utf-8 -*-
 
-from stock.src import stock_crawling, stock_info
+
 import sys
+
+print(sys.path[0][0:-4])
+sys.path.append(sys.path[0][0:-4])
+from stock.src import stock_crawling, stock_info
 
 THEAD_COUNT = 20
 THEAD_POOL = []
