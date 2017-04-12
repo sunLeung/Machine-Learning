@@ -1,14 +1,14 @@
 #!/usr/bin/python3
+# -*- coding:utf-8 -*-
 
-import urllib.request as request
 import threading
 import time
-import stock.stock_info as stock_info
+import urllib.request as request
 
 
 class StockCrawling(threading.Thread):
     url = 'http://hq.sinajs.cn/list=%s'
-    path = 'data/stock/%s/%s'
+    path = '../data/stock_data/%s/%s'
 
     def __init__(self, TheadID, queue):
         threading.Thread.__init__(self)
@@ -30,7 +30,7 @@ class StockCrawling(threading.Thread):
                     f.write(data + '\n')
             resp.close()
         except Exception as e:
-            print(e, 'stock code:', code)
+            print(e, 'stock_data code:', code)
         return data
 
     def run(self):

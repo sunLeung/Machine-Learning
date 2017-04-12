@@ -1,4 +1,5 @@
 #!/usr/bin/python3
+# -*- coding:utf-8 -*-
 
 import urllib.request as request
 import time
@@ -6,10 +7,10 @@ import xlrd
 
 
 class StockInfo:
-    __sh_url = 'http://query.sse.com.cn/security/stock/downloadStockListFile.do?csrcCode=&stockCode=&areaName=&stockType=%s'
-    __sh_heads = {'Referer': 'http://www.sse.com.cn/assortment/stock/list/share/'}
+    __sh_url = 'http://query.sse.com.cn/security/stock_data/downloadStockListFile.do?csrcCode=&stockCode=&areaName=&stockType=%s'
+    __sh_heads = {'Referer': 'http://www.sse.com.cn/assortment/stock_data/list/share/'}
     __sz_url = 'http://www.szse.cn/szseWeb/ShowReport.szse?SHOWTYPE=xlsx&CATALOGID=1110&tab%sPAGENO=1&ENCODE=1&TABKEY=tab%s'
-    __save_path = 'data/stock_info/%s'
+    __save_path = '../data/stock_info/%s'
     __today = time.strftime("%Y-%m-%d %H:%M:%S", time.localtime())
     __files = ['sh_a.xls', 'sh_b.xls', 'sz_a.xlsx', 'sz_b.xlsx']
 
