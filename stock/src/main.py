@@ -18,7 +18,7 @@ def crate_stock_queue():
                 stock_queue.append([d.split('.')[0], 'sh' + code])
         else:
             for code in dict[d]:
-                stock_queue.append([d.split('.')[0], 'sh' + code])
+                stock_queue.append([d.split('.')[0], 'sz' + code])
     one_size = stock_queue.__len__() // THEAD_COUNT
     thead_stock = []
     for t in range(THEAD_COUNT):
