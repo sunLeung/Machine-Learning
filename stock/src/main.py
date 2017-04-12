@@ -42,7 +42,7 @@ def start_crawling():
 
 if __name__ == '__main__':
     o = stock_info.StockInfo()
-    o.read_stock_info()
+    o.auto_update()
     dict = stock_info.StockInfo.stock_info_dic
     start_crawling()
     # while True:
