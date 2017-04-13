@@ -3,10 +3,10 @@
 
 import sys
 
-sys.path.append(sys.path[0][0:-10])
-from stock.src import stock_crawling, stock_info
+sys.path.append(sys.path[0][0:-9])
+from download import stock_info, stock_crawling
 
-THEAD_COUNT = 20
+THEAD_COUNT = 8
 THEAD_POOL = []
 
 
@@ -43,9 +43,6 @@ def start_crawling():
 if __name__ == '__main__':
     o = stock_info.StockInfo()
     o.auto_update()
+    # o.read_stock_info()
     dict = stock_info.StockInfo.stock_info_dic
     start_crawling()
-    # while True:
-    #     time.sleep(10)
-    #     for t in THEAD_POOL:
-    #         t.join()
