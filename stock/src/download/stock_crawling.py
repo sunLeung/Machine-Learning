@@ -8,10 +8,9 @@ import requests
 
 class StockCrawling(threading.Thread):
     url = 'http://hq.sinajs.cn/list=%s'
-    path = '../../data/stock_data/%s/%s'
     session = requests.Session()
 
-    def __init__(self, theadID, queue):
+    def __init__(self, theadID, queue, path):
         threading.Thread.__init__(self)
         self.theadID = theadID
         self.queue = queue
@@ -19,6 +18,7 @@ class StockCrawling(threading.Thread):
         for i in queue:
             codes_list.append(i[1])
         self.url = self.url % (','.join(codes_list))
+        self.path = path + '/%s/%s'
 
     def __crawling_data(self):
         data = ''

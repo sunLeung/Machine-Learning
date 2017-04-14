@@ -12,7 +12,7 @@ class StockInfo:
     __sz_url = 'http://www.szse.cn/szseWeb/ShowReport.szse?SHOWTYPE=xlsx&CATALOGID=1110&tab%sPAGENO=1&ENCODE=1&TABKEY=tab%s'
     __save_path = '../../data/stock_info/%s'
     __today = time.strftime("%Y-%m-%d %H:%M:%S", time.localtime())
-    __files = ['sh_a.xls', 'sh_b.xls', 'sz_a.xlsx', 'sz_b.xlsx']
+    __files = ['sh_a.xls', 'sh_b.xls', 'sz_a.xlsx', 'sz_b.xlsx','stock_index']
 
     stock_info_dic = {}
 
@@ -61,11 +61,10 @@ class StockInfo:
         with open(path, encoding='GBK') as f:
             count = 0
             for line in f:
-                if count == 0:
-                    pass
-                attrs = line.split('\t')
-                if attrs[2].strip() != '':
-                    dict[attrs[2].strip()] = attrs[1].strip()
+                if count != 0:
+                    attrs = line.split('\t')
+                    if attrs[2].strip() != '':
+                        dict[attrs[2].strip()] = attrs[1].strip()
                 count += 1
         StockInfo.stock_info_dic[file] = dict
 
@@ -82,13 +81,21 @@ class StockInfo:
                     dict[r[5].strip()] = r[1].strip()
         StockInfo.stock_info_dic[file] = dict
 
+    def __read_index_stock_info(self, file):
+        path = self.__save_path % (file)
+        dict = {}
+        with open(path,encoding='UTF-8') as f:
+            for line in f:
+                attrs = line.split(',')
+                dict[attrs[0].strip()] = attrs[1].strip()
+        StockInfo.stock_info_dic[file] = dict
+
     def read_stock_info(self):
-        c = self.__files.__len__()
-        for i in range(c):
-            if i < 2:
-                self.__read_sh_stock_info(self.__files[i])
-            else:
-                self.__read_sz_stock_info(self.__files[i])
+        self.__read_sh_stock_info(self.__files[0])
+        self.__read_sh_stock_info(self.__files[1])
+        self.__read_sz_stock_info(self.__files[2])
+        self.__read_sz_stock_info(self.__files[3])
+        self.__read_index_stock_info(self.__files[4])
 
     def auto_update(self):
         self.down_stock_info()
