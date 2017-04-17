@@ -10,11 +10,13 @@ class StockInfo:
     __sh_url = 'http://query.sse.com.cn/security/stock/downloadStockListFile.do?csrcCode=&stockCode=&areaName=&stockType=%s'
     __sh_heads = {'Referer': 'http://www.sse.com.cn/assortment/stock_data/list/share/'}
     __sz_url = 'http://www.szse.cn/szseWeb/ShowReport.szse?SHOWTYPE=xlsx&CATALOGID=1110&tab%sPAGENO=1&ENCODE=1&TABKEY=tab%s'
-    __save_path = '../../data/stock_info/%s'
     __today = time.strftime("%Y-%m-%d %H:%M:%S", time.localtime())
     __files = ['sh_a.xls', 'sh_b.xls', 'sz_a.xlsx', 'sz_b.xlsx','stock_index']
 
     stock_info_dic = {}
+
+    def __init__(self,save_path):
+        self.__save_path=save_path+'/%s'
 
     def __sh_a_info(self):
         url = self.__sh_url % ('1')

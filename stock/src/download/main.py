@@ -10,7 +10,8 @@ from download import stock_info, stock_crawling
 
 THEAD_COUNT = 8
 THEAD_POOL = []
-DATA_PATA = sys.path[0][0:-12]+'data/stock_data/'
+DATA_PATH = sys.path[0][0:-12]+'data/stock_data/'
+INFO_PATH = sys.path[0][0:-12]+'data/stock_info/'
 
 
 def crate_stock_queue():
@@ -53,7 +54,7 @@ def get_path():
     :return:
     """
     today = time.strftime('%Y-%m-%d', time.localtime())
-    path = DATA_PATA + today
+    path = DATA_PATH+ today
     p1 = path + '/' + 'sh_a'
     p2 = path + '/' + 'sh_b'
     p3 = path + '/' + 'sz_a'
@@ -69,8 +70,8 @@ def get_path():
 
 
 if __name__ == '__main__':
-    o = stock_info.StockInfo()
-    # o.auto_update()
-    o.read_stock_info()
+    o = stock_info.StockInfo(INFO_PATH)
+    o.auto_update()
+    # o.read_stock_info()
     dict = stock_info.StockInfo.stock_info_dic
     start_crawling()

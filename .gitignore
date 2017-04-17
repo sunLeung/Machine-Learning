@@ -6,5 +6,5 @@
 /wa/
 /stock/data/stock_data/
 /stock/data/stock_history/
-/stock/data/stock_info/
+/stock/data/stock_info/*.xls,*.xlsx
 /stock/logs/
