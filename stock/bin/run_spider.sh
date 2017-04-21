@@ -6,6 +6,7 @@
 # Description: 启动爬虫程序
 
 current_date=`date +%Y%m%d%H`
-echo `python3 --version`
+PATH="/Library/Frameworks/Python.framework/Versions/3.6/bin:${PATH}"
+export PATH
 cd /Users/leungyuxin/PycharmProjects/Machine-Learning/stock/src/download/
 nohup python3 -u main.py > ../../logs/${current_date}.log&
