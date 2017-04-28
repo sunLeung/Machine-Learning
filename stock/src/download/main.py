@@ -70,6 +70,10 @@ def get_path():
 
 
 if __name__ == '__main__':
+    if sys.argv.__len__()>1:
+        DATA_PATH = sys.argv[1]
+        if DATA_PATH[-1:-1] != '/':
+            DATA_PATH += '/'
     o = stock_info.StockInfo(INFO_PATH)
     o.auto_update()
     # o.read_stock_info()
