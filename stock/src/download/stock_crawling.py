@@ -46,6 +46,7 @@ class StockCrawling(threading.Thread):
                             pass
             time.sleep(1)
         except Exception as e:
+            global code
             print(e, 'stock_data code:', code)
         return data
 
