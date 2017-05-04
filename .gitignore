@@ -8,3 +8,4 @@
 /stock/data/stock_history/
 /stock/data/stock_info/*.xls,*.xlsx
 /stock/logs/
+**/__pycache__
